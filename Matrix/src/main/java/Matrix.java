@@ -204,7 +204,6 @@ public class Matrix{
         return mat;
     }
     //Обернена матриця(союзна транспонована матриця поділена на визначник)
-    // на студіфайл або вікі непогано пояснюється
     public Matrix inverse() {
         Matrix b=this.cofactor();
         b=b.transpose();
