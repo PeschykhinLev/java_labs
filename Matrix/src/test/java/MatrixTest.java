@@ -291,5 +291,24 @@ class MatrixTest {
                 {5,2}
         }));
     }
+    @Test
+    void testGeneric(){
+        System.out.println("Generic matrix");
+        Integer[][] iArr=new Integer[][]{
+                {2,1},
+                {5,2},
+        };
+        Double[][] dArr=new Double[][]{
+                {3.2,1.4},
+                {5.73,-2.05},
+        };
+        System.out.println("Integers");
+        GenericMatrix<Integer> integerMatrix=new GenericMatrix<Integer>(iArr);
+        integerMatrix.print();
+        System.out.println("Doubles");
+        GenericMatrix<Double> doubleMatrix=new GenericMatrix<Double>(dArr);
+        doubleMatrix.print();
+
+    }
 
 }
