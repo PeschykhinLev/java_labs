@@ -13,19 +13,16 @@ class MatrixTest {
         a.fillWithValues(data);
         System.out.println("Fill with values 'A'");
         a.print();
-        System.out.println(a.hashCode());
         Matrix b = new Matrix(a);
         //b.setValueAt(0,0,5);
-        System.out.println("");
+        System.out.println();
         System.out.println("Fill with values 'B'");
         b.print();
-        System.out.println(b.hashCode());
         System.out.println();
         ImmutableMatrix c = new ImmutableMatrix(b);
-        //c.setValueAt(0,0,7);
+        //c.setValueAt(0,0,7); //показуєм, що immutable
         System.out.println("Fill with values 'C'");
         c.print();
-        System.out.println(c.hashCode());
         System.out.println("");
         assertEquals(a, b);
 
