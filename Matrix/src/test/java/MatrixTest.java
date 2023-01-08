@@ -14,7 +14,7 @@ class MatrixTest {
         System.out.println("Fill with values 'A'");
         a.print();
         Matrix b = new Matrix(a);
-        //b.setValueAt(0,0,5);
+        //gb.setValueAt(0,0,5);
         System.out.println();
         System.out.println("Fill with values 'B'");
         b.print();
