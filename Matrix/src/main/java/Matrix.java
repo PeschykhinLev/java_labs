@@ -90,7 +90,7 @@ public class Matrix{
         Matrix res=new Matrix(1,size);
         Random rand=new Random();
         for(int i=0;i<size;++i){
-            res.matrix[0][i]=rand.nextDouble();
+            res.matrix[0][i]=Math.floor(rand.nextDouble()*10000) / 100;;
         }
         return res;
     }
@@ -99,7 +99,7 @@ public class Matrix{
         Matrix res=new Matrix(size,1);
         Random rand=new Random();
         for(int i=0;i<size;++i){
-            res.matrix[i][0]=rand.nextDouble();
+            res.matrix[i][0]=Math.floor(rand.nextDouble()*10000) / 100;;
         }
         return res;
     }
@@ -193,7 +193,7 @@ public class Matrix{
         return mat;
     }
     //Союзна матриця
-    private Matrix cofactor() {
+    public Matrix cofactor() {
         Matrix mat = new Matrix(getNrows(), getNcols());
         for (int i=0;i<getNrows();i++) {
             for (int j=0; j<getNcols();j++) {
@@ -204,7 +204,6 @@ public class Matrix{
         return mat;
     }
     //Обернена матриця(союзна транспонована матриця поділена на визначник)
-    // на студіфайл або вікі непогано пояснюється
     public Matrix inverse() {
         Matrix b=this.cofactor();
         b=b.transpose();
@@ -213,12 +212,23 @@ public class Matrix{
     //Перевизначені методи перевірки ідентичності та отримання хеш-коду
     @Override
     public boolean equals(Object o){
-        if (this == o) return true;
-        if (o == null) return false;
         Matrix other=(Matrix) o;
-        return Arrays.deepEquals(this.matrix,other.matrix);
+        if (this.getClass().equals(o.getClass())){
+            if (Arrays.deepEquals(this.matrix,other.matrix) == true){
+                System.out.println("Equal");
+                return true;
+            }else {
+                System.out.println("Classes are the same, but entries are different");
+                return false;
+            }
+        } else if (Arrays.deepEquals(this.matrix,other.matrix) == true) {
+            System.out.println("Different classes, but entries are the same");
+            return false;
+        }else {
+            System.out.println("Not equal");
+            return false;
+        }
     }
-
     @Override
     public int hashCode() {
         return Arrays.deepHashCode(this.matrix);
